@@ -1,0 +1,49 @@
+/* GENERAL PAGE STYLE */
+
+:root {
+  font-family: Roboto, sans-serif;
+  font-size: larger;
+  text-align: center;
+  list-style-position: inside;
+}
+
+@media (prefers-color-scheme: light) { :root { background: white; color:  #555; } }
+@media (prefers-color-scheme: dark) { :root { background: black; color:  #ddd; } }
+
+/* QUERY SECTION */
+
+.supports-prefers-color-scheme,.color-scheme { font-weight: bold; }
+
+.supports-prefers-color-scheme.yes { display: none; }
+@media (prefers-color-scheme) {
+  .supports-prefers-color-scheme.no { display: none; }
+  .supports-prefers-color-scheme.yes { display: initial; }
+}
+
+.color-scheme { display: none; }
+@media (prefers-color-scheme: no-preference) { .color-scheme.no-preference { display: initial; } }
+@media (prefers-color-scheme: light) { .color-scheme.light { display: initial; } }
+@media (prefers-color-scheme: dark) { .color-scheme.dark { display: initial; } }
+
+/* PREVIEW SECTION */
+
+.preview-grid {
+  display: grid;
+  grid-template:
+    repeat(3,1fr)
+    repeat(3,1fr) / repeat(3,1fr);
+}
+
+.day, .night { padding: 10%; }
+.day   { background: #eee; color: black; }
+.night { background: #333; color: white; }
+
+@media (prefers-color-scheme: dark) {
+  .day.dark-scheme   { background:  #333; color: white; }
+  .night.dark-scheme { background: black; color:  #ddd; }
+}
+
+@media (prefers-color-scheme: light) {
+  .day.light-scheme   { background: white; color:  #555; }
+  .night.light-scheme { background:  #eee; color: black; }
+}
