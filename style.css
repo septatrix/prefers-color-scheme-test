@@ -29,9 +29,7 @@
 
 .preview-grid {
   display: grid;
-  grid-template:
-    repeat(3,1fr)
-    repeat(3,1fr) / repeat(3,1fr);
+  grid-template: 1fr / 1fr 1fr 1fr;
 }
 
 .day, .night { padding: 10%; }
